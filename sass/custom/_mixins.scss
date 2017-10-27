@@ -1,0 +1,84 @@
+@mixin general {
+  *,
+  *::after,
+  *::before {
+    @include box-sizing(border-box);
+    @include zero;
+    font-family: $helvetica;
+  }
+  body {
+    background-color: $white;
+  }
+  p {
+    // font-family: $helvetica;
+    font-size: 14px;
+    color: $dark-grey;
+  }
+}
+
+//breakpoints
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) { @content ; }
+ }
+  @else if $point == laptop {
+    @media (min-width: 64em) { @content ; }
+ }
+   @else if $point == tablet {
+    @media (min-width: 50em) { @content ; }
+ }
+  @else if $point == phablet {
+    @media (min-width: 37.5em)  { @content ; }
+ }
+ @else if $point == mobileonly {
+    @media (max-width: 37.5em)  { @content ; }
+
+ }
+}
+
+
+@mixin zero {
+  padding: $zero;
+  margin: $zero;
+}
+
+@mixin fluid-img {
+  width: auto;
+  max-width: 100%;
+}
+
+@mixin headlines {
+  .hero h1 {
+    opacity: 0.3;
+    font-size: 12vw;
+    color:$white;
+    letter-spacing: -5px;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  h2 {
+    color:$white;
+    font-size: 25px;
+    background-color: $dark-grey;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h3 {
+    color:$orange;
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+}
+
+@mixin mobile-container {
+  width: 100%;
+  margin: auto;
+}
