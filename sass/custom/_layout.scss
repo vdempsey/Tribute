@@ -1,9 +1,358 @@
-//mobile
+@include general;
+@include headlines;
+a {
+  @include menu-links ($white, $light-grey, $orange, $white, $light-grey);
+}
 
-// body {
-//   background-color: #f2f2f2;
-// }
-//
-// .main-wrap {
-//   @include mobile-container;
-// }
+// Mobile-first
+
+.main-wrap {
+  @include mobile-container;
+}
+
+.col {
+  @extend .main-wrap;
+}
+
+.thumbnail-wrap,
+.thumbnail-container,
+.thumbnail-container-feature,
+.sidebar-wrap  {
+  width: 100%;
+  float: left;
+}
+
+.thumbnail-wrap p {
+  padding-right: 20px;
+}
+
+.hero {
+  width: 100%;
+  height: 200px;
+  margin-top: 50px;
+  background-image: url('../img/firefighter-1.jpg');
+  background-size: cover;
+}
+
+.nav-wrap {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  height: 120px;
+  color: #fff;
+  font-family: $helvetica;
+  padding: 1em;
+}
+
+.nav-container {
+  position: relative;
+  text-align: center;
+}
+
+.nav-wrap ul li {
+  display: inline-block;
+  /*margin: auto;
+  text-align: center;*/
+}
+
+.navigation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.menu {
+padding: 30px;
+margin-bottom: 20px; }
+
+.logo {
+  width: 80px;
+}
+
+.thumbnail-container {
+  height: auto;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  @include border-bottom;
+}
+
+.thumbnail-container-feature {
+  padding-bottom: 20px;
+  @include border-bottom;
+}
+
+img {
+  @include fluid-img;
+}
+
+
+.thumbnail-copy-feature  {
+  padding: 20px;
+}
+
+.white-p {
+  color: $white;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.white-p:nth-child(2) {
+  font-weight: bold;
+  padding-bottom: 0;
+}
+
+.bottom-copy,
+.sidebar-copy {
+  padding: 20px 20px 40px 20px;
+  margin-bottom: 20px;
+}
+
+
+.thumbnail-container-feature {
+  background-color: $orange;
+  padding-bottom: 0;
+}
+
+
+
+//--------------------------------------------------------
+
+
+@include breakpoint(phablet) {
+  .thumbnail-img, .thumbnail-img-feature {
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  // h1 {
+  //   display: none;
+  // }
+}
+
+//--------------------------------------------------------
+
+@include breakpoint(tablet) {
+
+  .content-wrap, .navigation {
+    width: 100%;
+    margin: auto;
+  }
+
+  .hero {
+    position: relative;
+  }
+
+  .content-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    @include grid-collapse;
+  }
+
+  .thumbnail-wrap {
+    @include grid-column(8);
+    background-color: $white;
+    height: auto;
+  }
+
+  .thumbnail-wrap p {
+    padding-right: 0;
+  }
+
+  .thumbnail-img {
+    width: 45%;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .thumbnail-img,
+  .thumbnail-img-feature {
+    padding-bottom: 20px;
+  }
+
+  .thumbnail-img-feature {
+    width: 100%;
+  }
+
+  .thumbnail-container {
+    @include grid-column(12);
+    height: auto;
+    margin-left: 0;
+    padding-bottom: 20px;
+    @include border-bottom;
+  }
+
+  .thumbnail-wrap-container-two {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    .thumbnail-container-feature {
+      width: 45%;
+      float: left;
+      height: auto;
+      padding-bottom: 20px;
+    }
+    .thumbnail-container {
+      width: 45%;
+      margin-left: 20px;
+      border-bottom: none;
+      height: auto;
+      float: left;
+    }
+    .bottom-copy {
+      width: 100%;
+      padding: 20px 0;
+      margin-top: 20px;
+      @include border-top;
+      display: flex;
+      flex-wrap: wrap;
+      height: auto;
+    }
+  }
+
+  p.bottom {
+    display: none;
+  }
+
+  .sidebar-wrap {
+    @include grid-column (4);
+    background-color: $light-grey;
+    height: auto;
+    margin-left: 20px;
+    .sidebar-copy {
+      padding: 20px 20px 20px 30px;
+    }
+  }
+
+  .hero {
+    height: 200px;
+  }
+
+}
+
+
+//--------------------------------------------------------
+
+
+@include breakpoint(mobileonly) {
+  .nav-wrap {
+    text-align: center;
+  }
+
+  .thumbnail-copy, .sidebar-copy {
+    padding: 20px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .thumbnail-container {
+    border-bottom: none;
+  }
+}
+
+
+//--------------------------------------------------------
+
+
+
+@include breakpoint(laptop) {
+
+body {
+  background-image: url('../img/gorge.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+  .content-wrap, .navigation {
+    width: 90%;
+    margin: auto;
+  }
+
+  .hero {
+    position: relative;
+  }
+
+  .content-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .thumbnail-img {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+  }
+
+  .thumbnail-wrap {
+    @include grid-column(9);
+    background-color: $white;
+    height: auto;
+  }
+
+  .thumbnail-wrap-container-one {
+    @include grid-column(12);
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    .thumbnail-container {
+      @include grid-column(4);
+      height: auto;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      @include border-bottom;
+    }
+  }
+
+  .feature {
+    padding-top: 0;
+  }
+
+  .thumbnail-wrap-container-two {
+    @include grid-column(12);
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    .thumbnail-container-feature {
+      @include grid-column(8);
+      height: auto;
+      background-color: $orange;
+      padding-bottom: 20px;
+    }
+    .thumbnail-container {
+      @include grid-column(4);
+      height: auto;
+    }
+    .bottom-copy {
+      @include grid-column(12);
+      padding: 20px 0;
+      margin-top: 20px;
+      @include border-top;
+      display: flex;
+      flex-wrap: wrap;
+      height: auto;
+    }
+  }
+
+  .sidebar-wrap {
+    @include grid-column (3);
+    background-color: $light-grey;
+    height: auto;
+  }
+
+  .sidebar-copy {
+    padding: 20px;
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+}
