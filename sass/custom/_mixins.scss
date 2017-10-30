@@ -10,7 +10,6 @@
     background-color: $white;
   }
   p {
-    // font-family: $helvetica;
     font-size: 14px;
     color: $dark-grey;
   }
@@ -91,7 +90,7 @@
 }
 
 @mixin border-bottom {
-  border-bottom: 2px solid $orange;
+  border-bottom: 2px solid lighten($orange, 20%);
 }
 
 @mixin border-top {
